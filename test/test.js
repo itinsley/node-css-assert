@@ -1,8 +1,11 @@
+global.jQuery = require('jquery');
 var request = require('request');
 var cheerio = require('cheerio')
 var chai = require("chai");
 var chaiHttp = require("chai-http");
 chai.use(chaiHttp);
+chai.use(require('chai-jquery'));
+
 var expect = chai.expect;
 
 it("can use cheerio to match on css", function (done) {
