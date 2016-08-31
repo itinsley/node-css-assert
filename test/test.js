@@ -24,3 +24,23 @@ it("can use chai http to get response", function (done) {
         done()
       });
 });
+
+
+it("can use jquery to match on css", function (done) {
+
+  this.timeout(5000);
+  var jsdom = require("jsdom");
+
+  jsdom.env(
+    "http://help.websiteos.com/websiteos/example_of_a_simple_html_page.htm",
+    ["http://code.jquery.com/jquery.js"],
+    function (err, window) {
+      var data = window.$('h1').text();
+      expect(data).to.match(/Example of a simple HTML page/)
+      done();
+    }
+  );
+
+});
+
+
